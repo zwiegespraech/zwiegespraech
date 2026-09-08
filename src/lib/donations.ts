@@ -3,8 +3,8 @@
 // TODO: Bankverbindung ergänzen, sobald vorhanden – aktuell nur Platzhalter
 export const BANK_DETAILS = {
   kontoinhaber: 'Zwiegespräch e.V.',
-  iban: 'DE00 0000 0000 0000 0000 00',
-  bic: 'XXXXXXXXXXX',
+  iban: 'DE91 4765 0130 1010 2638 28',
+  bic: 'WELADE3LXXX',
   bank: '',
 };
 
