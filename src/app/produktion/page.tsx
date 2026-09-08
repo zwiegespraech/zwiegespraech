@@ -1,0 +1,266 @@
+"use client";
+
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
+import { useState } from 'react';
+
+export default function ProduktionPage() {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const castImages = [
+    {
+      id: 1,
+      name: "Serge",
+      actor: "Kevin Nolting",
+      quote: '„Für mich ist es nicht weiß. Wenn ich sage, für mich, dann meine ich objektiv. Objektiv gesehen ist es nicht weiß. […] Sogar rot ist drin."',
+      images: ["/images/Kunst/Serge.webp", "/images/Kunst/Serge2.webp"]
+    },
+    {
+      id: 2,
+      name: "Marc",
+      actor: "Bastian Bühler",
+      quote: '„Ein Gedanke hinter sowas! … Was du siehst, ist zwar eine Scheiße, doch sei unbesorgt, sei unbesorgt, es steckt ein Gedanke dahinter!"',
+      images: ["/images/Kunst/Marc.webp", "/images/Kunst/Marc2.webp"]
+    },
+    {
+      id: 3,
+      name: "Yvan",
+      actor: "Luis Lessing",
+      quote: '„Ihr [wisst], [dass] ich weinen kann… Ich kann hier auf der Stelle anfangen zu weinen … Ich bin übrigens nicht weit davon entfernt."',
+      images: ["/images/Kunst/yvan.webp", "/images/Kunst/yvan2.webp"]
+    }
+  ];
+
+  const galleryImages = [
+    "/images/Kunst/IMG_8897.webp",
+    "/images/Kunst/IMG_8700.webp",
+    "/images/Kunst/IMG_8747.webp",
+    "/images/Kunst/IMG_8801.webp",
+    "/images/Kunst/IMG_9087.webp",
+    "/images/Kunst/IMG_9190.webp"
+  ];
+
+  return (
+    <div className="min-h-screen bg-light text-dark flex flex-col">
+      <Header />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 bg-dark text-light">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl md:text-5xl font-display mb-6 text-center">Aktuelle Produkti[oː]n</h1>
+          <p className="text-3xl font-display text-center text-mist">„Kunst"</p>
+        </div>
+      </section>
+      
+      <main className="flex-grow">
+        {/* Description Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <p className="text-xl mb-8">
+                Die wortgewandte Komödie „Kunst" (uraufgeführt 1994 in Paris) von Yasmina 
+                Reza beleuchtet die Beziehung zwischen den Freunden Marc, Serge und Yvan
+                und dem Gemälde eines berühmten Malers: Die Tatsache, dass Serge sich 
+                ein weißes Bild mit weißen Streifen für 200.000 Francs gekauft hat, 
+                stößt bei Marc auf Fassungslosigkeit und Spott. Yvan verspottet Serge 
+                hingegen nicht, schließlich gefällt Serge dieses Bild. Bald entwickelt 
+                sich zwischen den drei Freunden nicht nur die Frage, was Kunst 
+                eigentlich sein kann, sondern eine Eigendynamik, die bei genauerer 
+                Betrachtung eine skurrile, witzige und nachdenkliche Auseinandersetzung 
+                mit anderen Fragen erzwingt: Was ist eigentlich Freundschaft und was 
+                kann diese aushalten, wenn man nicht mehr gemeinsam lachen kann?
+              </p>
+
+              {/* Video Trailer */}
+             <div className="relative pt-[56.25%] bg-black mb-16">
+  <iframe
+    className="absolute top-0 left-0 w-full h-full"
+    src="https://www.youtube.com/embed/qdK0_06D7Fo" // Ersetzen Sie YOUTUBE_VIDEO_ID mit Ihrer tatsächlichen YouTube-Video-ID
+    title="Kunst - Trailer"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</div>
+            </div>
+          </div>
+        </section>
+
+        {/* Author Section */}
+        <section className="py-16 bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-8">Die Autorin - Yasmina Reza</h2>
+              <p className="text-xl mb-6">
+                Yasmina Reza ist eine angesehene französische Schriftstellerin, die 1959 in 
+                Paris geboren wurde und für ihre intelligenten und humorvollen Werke 
+                bekannt ist. Zunächst als Schauspielerin tätig, wandte sie sich später 
+                dem Schreiben zu und erlangte weltweite Anerkennung mit ihrem Stück 
+                „Kunst" (1994), das zahlreiche Preise erhielt. Rezas Werke zeichnen sich
+                durch präzise Dialoge und subtile Beobachtungen menschlichen Verhaltens
+                aus. Sie thematisiert oft zwischenmenschliche Beziehungen und das 
+                Scheitern der Kommunikation. Neben Theaterstücken hat sie auch 
+                erfolgreiche Romane verfasst und ebenfalls im filmischen Bereich mit 
+                Roman Polanski zusammengearbeitet, wodurch sie sich als vielseitige 
+                Autorin etabliert hat.
+              </p>
+              <p className="text-lg">
+                Quelle: <a 
+                  href="https://www.britannica.com/biography/Yasmina-Reza" 
+                  target="_blank" 
+                  rel="noreferrer noopener"
+                  className="text-slate hover:underline"
+                >
+                  https://www.britannica.com/biography/Yasmina-Reza
+                </a>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Cast Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-display mb-12 text-center">Die Rollen</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {castImages.map((character) => (
+                <div key={character.id} className="bg-white rounded-md shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+                  <div className="relative pt-[125%] bg-ice">
+                    {character.images.map((image, index) => (
+                      <img 
+                        key={index}
+                        src={image} 
+                        alt={character.name} 
+                        className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ${
+                          index === activeImageIndex ? 'opacity-100' : 'opacity-0'
+                        }`}
+                      />
+                    ))}
+                    {character.images.length > 1 && (
+                      <div className="absolute bottom-4 right-4 flex gap-2">
+                        {character.images.map((_, index) => (
+                          <button 
+                            key={index}
+                            onClick={() => setActiveImageIndex(index)}
+                            className={`w-3 h-3 rounded-full ${
+                              index === activeImageIndex ? 'bg-white' : 'bg-silver'
+                            }`}
+                            aria-label={`Bild ${index + 1} anzeigen`}
+                          />
+                        ))}
+                      </div>
+                    )}
+                    <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-2 text-center">
+                      {character.name}
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-3">{character.name}</h3>
+                    <p className="text-slate mb-4">Gespielt von: {character.actor}</p>
+                    <p className="text-slate italic">
+                      {character.quote}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Cast & Crew List */}
+        <section className="py-16 bg-light">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl font-display mb-8 text-center">Mitwirkende</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <p className="text-lg py-2"><span className="font-bold">Serge:</span> Kevin Nolting</p>
+                  <p className="text-lg py-2"><span className="font-bold">Marc:</span> Bastian Bühler</p>
+                  <p className="text-lg py-2"><span className="font-bold">Yvan:</span> Luis Lessing</p>
+                  <p className="text-lg py-2"><span className="font-bold">Souffleuse:</span> Pauline Sebastian & Wiktoria Lessing</p>
+                </div>
+                <div>
+                  <p className="text-lg py-2"><span className="font-bold">Inszenierung:</span> Sebastian Narhofer</p>
+                  <p className="text-lg py-2"><span className="font-bold">Kostüme:</span> Kevin Nolting</p>
+                  <p className="text-lg py-2"><span className="font-bold">Bühnenbild:</span> Marion Bühler</p>
+                  <p className="text-lg py-2"><span className="font-bold">Requisiten:</span> Claus Wiegand</p>
+                </div>
+              </div>
+              
+              <p className="text-center mt-8">
+                Weitere Informationen zu den Mitwirkenden gibt es <a href="/ueber-uns" className="text-slate hover:underline">hier</a>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Gallery Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-display mb-12 text-center">Eindrücke aus der Produktion</h2>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+              {galleryImages.map((image, index) => (
+                <div key={index} className="overflow-hidden rounded-md shadow-md hover:shadow-xl transition-shadow">
+                  <img 
+                    src={image} 
+                    alt={`Szene aus "Kunst" ${index + 1}`} 
+                    className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            <div className="text-center mt-12">
+              <p className="text-lg">
+                Vielen Dank an{' '}
+                <a href="https://www.instagram.com/marionbuehler_art/" target="_blank" rel="noreferrer noopener" className="text-slate hover:underline">
+                  Marion Bühler
+                </a>{' '}
+                und{' '}
+                <a href="https://www.instagram.com/kreuzundquerfotografie/" target="_blank" rel="noreferrer noopener" className="text-slate hover:underline">
+                  Richard Laustroer
+                </a>{' '}
+                für das Bereitstellen der Fotos.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* News Bar */}
+        <section className="py-4 bg-dark text-light overflow-hidden">
+          <div className="container mx-auto px-4">
+            <div className="text-center">
+              <p className="whitespace-nowrap">
+                +++ Weitere Aufführungstermine folgen in Kürze +++
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="py-16 bg-light">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-display mb-6">Interesse geweckt?</h2>
+            <p className="text-xl mb-8 max-w-3xl mx-auto">
+              Besuchen Sie eine unserer Aufführungen oder nehmen Sie Kontakt mit uns auf,
+              wenn Sie mehr über das Stück erfahren möchten.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="/kalender" className="inline-block bg-light hover:bg-ice text-dark font-semibold uppercase tracking-wider py-3 px-8 rounded-md transition-colors">
+                Tickets
+              </a>
+              <a href="/kontakt" className="bg-dark hover:bg-steel text-light font-semibold uppercase tracking-wider py-3 px-8 rounded-md transition-colors">
+                Kontakt aufnehmen
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+      <ScrollToTopButton />
+    </div>
+  );
+}
