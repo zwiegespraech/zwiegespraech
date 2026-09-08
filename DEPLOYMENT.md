@@ -3,8 +3,15 @@
 Diese Anleitung führt einmal komplett durch: von leeren Accounts bis zur
 laufenden Produktivseite auf zwiegespraech-theater.de.
 
-Betroffene Dienste: **GitHub** (Code), **Vercel** (Hosting), **Resend**
+Betroffene Dienste: **GitHub** (Code), **Netlify** (Hosting), **Resend**
 (Kontaktformular-Mails), **PayPal** (Spenden-Button).
+
+> Warum Netlify statt Vercel: Vercels kostenloser Hobby-Plan erlaubt laut
+> [Fair Use Guidelines](https://vercel.com/docs/limits/fair-use-guidelines#commercial-usage)
+> nur nicht-kommerzielle Nutzung – Spenden sind davon ausdrücklich
+> ausgenommen, ein künftiger Ticketverkauf aber nicht mehr. Netlifys
+> Free-Plan schränkt die Nutzung nicht nach Zweck ein, nur nach
+> Ressourcenverbrauch (s. Schritt 6).
 
 ---
 
@@ -19,7 +26,7 @@ liegen lassen.
 
 - Node.js 20 LTS oder neuer, npm
 - Git-Zugriff auf `https://github.com/luislessing/zwiegespraech`
-- Ein Account bei: [vercel.com](https://vercel.com), [resend.com](https://resend.com), [developer.paypal.com](https://developer.paypal.com)
+- Ein Account bei: [netlify.com](https://netlify.com), [resend.com](https://resend.com), [developer.paypal.com](https://developer.paypal.com)
 - Zugriff auf die DNS-Verwaltung von `zwiegespraech-theater.de`
 
 ## 2. Projekt lokal einrichten
@@ -60,7 +67,7 @@ an `info@zwiegespraech-theater.de`.
    eintragen, dann in Resend auf **Verify** warten (kann bis zu 24h dauern,
    meist deutlich schneller)
 4. **API Keys → Create API Key** (reicht mit Send-Berechtigung)
-5. Den Key als `RESEND_API_KEY` in Vercel hinterlegen (Schritt 6)
+5. Den Key als `RESEND_API_KEY` in Netlify hinterlegen (Schritt 6)
 
 Ohne verifizierte Domain schlägt der Versand fehl, weil die Absenderadresse
 `kontakt@zwiegespraech-theater.de` sonst nicht als legitim gilt.
@@ -75,7 +82,7 @@ Code: `src/components/PayPalDonateButton.tsx` + `src/app/api/paypal/*`.
 2. [developer.paypal.com/dashboard](https://developer.paypal.com/dashboard) →
    oben links Modus auf **Sandbox** stellen → **Apps & Credentials → Create App**
 3. Client ID und Secret kopieren
-4. In Vercel (oder lokal in `.env.local`) setzen:
+4. In Netlify (oder lokal in `.env.local`) setzen:
    ```
    NEXT_PUBLIC_PAYPAL_CLIENT_ID=<Sandbox Client ID>
    PAYPAL_CLIENT_SECRET=<Sandbox Secret>
@@ -85,7 +92,7 @@ Code: `src/components/PayPalDonateButton.tsx` + `src/app/api/paypal/*`.
    klicken. Einloggen mit einem Sandbox-Testkäufer aus
    **Sandbox → Accounts** im Dashboard (nicht mit eurem echten PayPal-Login).
 6. Läuft der Testkauf durch → im Dashboard oben auf **Live** umschalten, dort
-   erneut **Create App** für eine Live-App, deren Live-Zugangsdaten in Vercel
+   erneut **Create App** für eine Live-App, deren Live-Zugangsdaten in Netlify
    eintragen und `NEXT_PUBLIC_PAYPAL_ENVIRONMENT=production` setzen.
 
 ⚠️ Ohne Schritt 6 (Umschalten auf `production`) läuft der Button dauerhaft im
@@ -96,27 +103,39 @@ Sandbox-Modus – echte Spenden würden dann nicht ankommen.
 `src/lib/donations.ts` → `BANK_DETAILS.iban` und `.bic` mit den echten Werten
 ersetzen, committen, deployen. (`kontoinhaber` ist bereits korrekt gesetzt.)
 
-## 6. Vercel-Projekt anlegen
+## 6. Netlify-Site anlegen
 
-1. Bei [vercel.com](https://vercel.com) mit GitHub anmelden
-2. **Add New… → Project** → Repo `luislessing/zwiegespraech` importieren
-3. **Root Directory: `.`** (Repo-Root – *nicht* `zwiegespraech-website/`,
-   das war ein älterer Stand des Projekts und stimmt nicht mehr)
-4. Framework Preset **Next.js** wird automatisch erkannt
-5. **Environment Variables** eintragen (für *Production* und *Preview*):
+Das Repo bringt bereits eine `netlify.toml` mit (Build-Command +
+`@netlify/plugin-nextjs`), Netlify braucht also praktisch keine manuelle
+Konfiguration.
+
+1. Bei [netlify.com](https://netlify.com) mit GitHub anmelden
+2. **Add new site → Import an existing project** → GitHub → Repo
+   `luislessing/zwiegespraech` auswählen
+3. Base directory leer lassen (Repo-Root), Build-Command/Publish-Directory
+   werden aus `netlify.toml` übernommen
+4. **Site settings → Environment variables** eintragen (gilt automatisch für
+   alle Deploy-Contexts, lässt sich pro Context aber auch einschränken):
    - `RESEND_API_KEY`
    - `NEXT_PUBLIC_PAYPAL_CLIENT_ID`
    - `PAYPAL_CLIENT_SECRET`
    - `NEXT_PUBLIC_PAYPAL_ENVIRONMENT`
-6. **Deploy** klicken
+5. **Deploy site** klicken
+
+⚠️ Der Free-Plan hat ein Credit-Budget statt getrennter Limits – **jeder
+Production-Deploy kostet 15 Credits** von den 300 Credits/Monat. In Phasen
+mit vielen Commits (wie gerade jetzt) lohnt sich ein Blick auf **Site
+overview → Usage**, damit die Seite nicht mitten in einer Spielankündigung
+wegen aufgebrauchter Credits offline geht.
 
 ## 7. Domain verbinden
 
-1. Vercel-Projekt → **Settings → Domains** → `zwiegespraech-theater.de`
-   (und `www.zwiegespraech-theater.de`) hinzufügen
-2. Die von Vercel angezeigten DNS-Einträge (A-Record/CNAME) beim
-   Domain-Provider setzen
-3. Auf Vercel warten, bis das SSL-Zertifikat automatisch ausgestellt ist
+1. Netlify-Site → **Domain management → Add a domain** →
+   `zwiegespraech-theater.de` (und `www.zwiegespraech-theater.de`) hinzufügen
+2. Die von Netlify angezeigten DNS-Einträge (meist per Netlify-DNS oder
+   A-Record/CNAME auf den eigenen Nameserver) beim Domain-Provider setzen
+3. Auf Netlify warten, bis das SSL-Zertifikat (Let's Encrypt) automatisch
+   ausgestellt ist
 
 ## 8. Nach dem Deploy prüfen
 
@@ -131,8 +150,9 @@ ersetzen, committen, deployen. (`kontoinhaber` ist bereits korrekt gesetzt.)
 
 ## 9. Laufender Betrieb
 
-- Push auf `main` → Vercel deployt automatisch als Production
-- Pull Requests / andere Branches bekommen automatisch eine Preview-URL
+- Push auf `main` → Netlify deployt automatisch als Production (kostet
+  15 Credits pro Deploy, s. Schritt 6)
+- Pull Requests / andere Branches bekommen automatisch einen Deploy Preview
 - Änderungen an Bankdaten, PayPal-Beträgen (`PAYPAL_DONATION_PRESETS`) oder
   Vereinsmitgliedern (`src/app/ueber-uns/page.tsx`) sind normale Code-Änderungen
-  – committen und pushen reicht, kein manueller Schritt in Vercel nötig
+  – committen und pushen reicht, kein manueller Schritt in Netlify nötig

@@ -112,7 +112,24 @@ export default function ImpressumPage() {
 
               <h2 className="text-2xl font-bold mb-4">Weitergabe von personenbezogenen Daten</h2>
               <p className="mb-6">
-                Die von Ihnen übermittelten personenbezogenen Daten werden nicht an Dritte weitergegeben, weder zu kommerziellen noch zu nichtkommerziellen Zwecken.
+                Eine Weitergabe Ihrer Daten an Dritte zu kommerziellen oder nichtkommerziellen Zwecken findet nicht statt, mit Ausnahme der nachfolgend aufgeführten Dienstleister, die wir zum Betrieb dieser Website und zur Abwicklung Ihrer Anfragen bzw. Spenden einsetzen. Mit allen genannten Dienstleistern bestehen, soweit erforderlich, Verträge zur Auftragsverarbeitung gem. Art. 28 DSGVO.
+              </p>
+
+              <h2 className="text-2xl font-bold mb-4">Eingesetzte Dienstleister (Auftragsverarbeiter)</h2>
+
+              <h3 className="text-xl font-semibold mb-3">Hosting: Netlify</h3>
+              <p className="mb-4">
+                Diese Website wird bei Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, USA gehostet. Netlify verarbeitet dabei zwangsläufig die technischen Zugriffsdaten aller Besucher*innen (u. a. IP-Adresse, Zeitpunkt des Zugriffs, aufgerufene Seiten), um die Website technisch bereitstellen zu können. Rechtsgrundlage ist unser berechtigtes Interesse an einer zuverlässigen und performanten Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO). Die Datenübertragung in die USA erfolgt auf Grundlage des EU-US Data Privacy Framework bzw. der EU-Standardvertragsklauseln. Weitere Informationen: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noreferrer noopener" className="text-slate hover:underline">Netlify-Datenschutzerklärung</a>.
+              </p>
+
+              <h3 className="text-xl font-semibold mb-3">Kontaktformular: Resend</h3>
+              <p className="mb-4">
+                Der Versand der über unser Kontaktformular eingehenden Nachrichten erfolgt über Resend, Inc., 2261 Market Street #4816, San Francisco, CA 94114, USA. Dabei werden die von Ihnen im Formular angegebenen Daten (Name, E-Mail-Adresse, Nachrichtentext) ausschließlich zum Zweck der Zustellung Ihrer Anfrage per E-Mail an uns verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Bearbeitung Ihrer Anfrage). Die Datenübertragung in die USA erfolgt auf Grundlage des EU-US Data Privacy Framework bzw. der EU-Standardvertragsklauseln. Weitere Informationen: <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noreferrer noopener" className="text-slate hover:underline">Resend-Datenschutzerklärung</a>.
+              </p>
+
+              <h3 className="text-xl font-semibold mb-3">Spenden: PayPal</h3>
+              <p className="mb-6">
+                Für Spenden über den PayPal-Button auf unserer Seite arbeiten wir mit dem Zahlungsdienstleister PayPal (Europe) S.à.r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Luxembourg zusammen. Wenn Sie sich für eine Spende per PayPal entscheiden, werden die zur Zahlungsabwicklung erforderlichen Daten (u. a. Name, E-Mail-Adresse, Zahlungsbetrag, IP-Adresse) an PayPal übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Erfüllung des mit PayPal geschlossenen Zahlungsvertrags). PayPal kann im Rahmen des Bezahlvorgangs eigene Cookies setzen; nähere Informationen hierzu sowie zur weiteren Datenverarbeitung durch PayPal finden Sie in der <a href="https://www.paypal.com/de/legalhub/paypal/privacy-full" target="_blank" rel="noreferrer noopener" className="text-slate hover:underline">PayPal-Datenschutzerklärung</a>.
               </p>
 
               <h2 className="text-2xl font-bold mb-4">Datensicherheit</h2>
@@ -147,7 +164,7 @@ export default function ImpressumPage() {
 
               <h2 className="text-2xl font-bold mb-4">Cookies</h2>
               <p className="mb-6">
-                Diese Webseite an sich verwendet keine Cookies. Für Cookies etwaiger eingebundener Medien (Youtube-Videos, Links zu externen Webseiten etc.) kann keine Gewähr übernommen werden (siehe Dienste und Inhalte anderer Anbieter).
+                Diese Webseite an sich verwendet keine eigenen Cookies. Beim Nutzen des PayPal-Spenden-Buttons lädt Ihr Browser das PayPal-SDK direkt von PayPal, wodurch PayPal eigene Cookies setzen kann (siehe „Spenden: PayPal“ oben). Für Cookies weiterer eingebundener Medien (Youtube-Videos, Links zu externen Webseiten etc.) kann keine Gewähr übernommen werden (siehe Dienste und Inhalte anderer Anbieter).
               </p>
 
               <h2 className="text-2xl font-bold mb-4">Dienste und Inhalte anderer Anbieter</h2>

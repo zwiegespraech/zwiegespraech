@@ -15,4 +15,4 @@ export const PAYPAL_DONATION_PRESETS = [10, 25, 50];
 //   NEXT_PUBLIC_PAYPAL_CLIENT_ID   – Client-ID (öffentlich, wird auch im Browser geladen)
 //   PAYPAL_CLIENT_SECRET           – Secret (bleibt serverseitig, s. src/lib/paypalServerClient.ts)
 //   NEXT_PUBLIC_PAYPAL_ENVIRONMENT – "production" für echte Zahlungen, sonst Sandbox (Standard)
-// Alle drei in Vercel unter Project Settings → Environment Variables eintragen.
+// Alle drei in Netlify unter Site settings → Environment variables eintragen.
