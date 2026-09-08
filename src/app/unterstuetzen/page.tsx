@@ -47,7 +47,7 @@ export default function UnterstuetzenPage() {
               <div className="max-w-3xl mx-auto text-center">
                 <h2 className="text-3xl font-display mb-6">Mitglied werden</h2>
                 <p className="text-lg text-slate mb-4">
-                  Ob auf der Bühne, hinter den Kulissen oder einfach als Unterstützer*in im Hintergrund –
+                  Ob auf der Bühne, hinter den Kulissen oder einfach als Unterstützer*in im Hintergrund,
                   als Mitglied wirst du Teil eines Vereins, der Theater in all seinen Facetten lebt und
                   gemeinsam mit dir weiterentwickelt.
                 </p>
@@ -89,7 +89,7 @@ export default function UnterstuetzenPage() {
               <div className="max-w-3xl mx-auto text-center mb-12">
                 <h2 className="text-3xl font-display mb-6">Spenden</h2>
                 <p className="text-lg text-slate">
-                  Bühnenbild, Kostüme, Technik und Proberäume – jede Produktion lebt von Ressourcen, die
+                  Bühnenbild, Kostüme, Technik und Proberäume, jede Produktion lebt von Ressourcen, die
                   wir uns als Verein selbst erarbeiten. Mit einer Spende hilfst du uns, weiterhin
                   Theater zu machen, das etwas bewegt.
                 </p>
