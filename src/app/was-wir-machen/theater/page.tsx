@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 import { useState } from 'react';
 
-export default function ProduktionPage() {
+export default function TheaterPage() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const castImages = [
     {
@@ -47,27 +47,30 @@ export default function ProduktionPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-dark text-light">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-display mb-6 text-center">Aktuelle Produkti[oː]n</h1>
-          <p className="text-3xl font-display text-center text-mist">„Kunst"</p>
+          <a href="/was-wir-machen" className="block text-sm uppercase tracking-widest text-mist hover:text-light transition-colors text-center mb-6">
+            ← Was w[i:]r machen
+          </a>
+          <h1 className="text-4xl md:text-5xl font-display mb-6 text-center">The[ˈaː]ter</h1>
+          <p className="text-2xl font-display text-center text-mist">Aktuelle Produkti[oː]n: „Kunst"</p>
         </div>
       </section>
-      
+
       <main className="flex-grow">
         {/* Description Section */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <p className="text-xl mb-8">
-                Die wortgewandte Komödie „Kunst" (uraufgeführt 1994 in Paris) von Yasmina 
+                Die wortgewandte Komödie „Kunst" (uraufgeführt 1994 in Paris) von Yasmina
                 Reza beleuchtet die Beziehung zwischen den Freunden Marc, Serge und Yvan
-                und dem Gemälde eines berühmten Malers: Die Tatsache, dass Serge sich 
-                ein weißes Bild mit weißen Streifen für 200.000 Francs gekauft hat, 
-                stößt bei Marc auf Fassungslosigkeit und Spott. Yvan verspottet Serge 
-                hingegen nicht, schließlich gefällt Serge dieses Bild. Bald entwickelt 
-                sich zwischen den drei Freunden nicht nur die Frage, was Kunst 
-                eigentlich sein kann, sondern eine Eigendynamik, die bei genauerer 
-                Betrachtung eine skurrile, witzige und nachdenkliche Auseinandersetzung 
-                mit anderen Fragen erzwingt: Was ist eigentlich Freundschaft und was 
+                und dem Gemälde eines berühmten Malers: Die Tatsache, dass Serge sich
+                ein weißes Bild mit weißen Streifen für 200.000 Francs gekauft hat,
+                stößt bei Marc auf Fassungslosigkeit und Spott. Yvan verspottet Serge
+                hingegen nicht, schließlich gefällt Serge dieses Bild. Bald entwickelt
+                sich zwischen den drei Freunden nicht nur die Frage, was Kunst
+                eigentlich sein kann, sondern eine Eigendynamik, die bei genauerer
+                Betrachtung eine skurrile, witzige und nachdenkliche Auseinandersetzung
+                mit anderen Fragen erzwingt: Was ist eigentlich Freundschaft und was
                 kann diese aushalten, wenn man nicht mehr gemeinsam lachen kann?
               </p>
 
@@ -91,22 +94,22 @@ export default function ProduktionPage() {
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-8">Die Autorin - Yasmina Reza</h2>
               <p className="text-xl mb-6">
-                Yasmina Reza ist eine angesehene französische Schriftstellerin, die 1959 in 
-                Paris geboren wurde und für ihre intelligenten und humorvollen Werke 
-                bekannt ist. Zunächst als Schauspielerin tätig, wandte sie sich später 
-                dem Schreiben zu und erlangte weltweite Anerkennung mit ihrem Stück 
+                Yasmina Reza ist eine angesehene französische Schriftstellerin, die 1959 in
+                Paris geboren wurde und für ihre intelligenten und humorvollen Werke
+                bekannt ist. Zunächst als Schauspielerin tätig, wandte sie sich später
+                dem Schreiben zu und erlangte weltweite Anerkennung mit ihrem Stück
                 „Kunst" (1994), das zahlreiche Preise erhielt. Rezas Werke zeichnen sich
                 durch präzise Dialoge und subtile Beobachtungen menschlichen Verhaltens
-                aus. Sie thematisiert oft zwischenmenschliche Beziehungen und das 
-                Scheitern der Kommunikation. Neben Theaterstücken hat sie auch 
-                erfolgreiche Romane verfasst und ebenfalls im filmischen Bereich mit 
-                Roman Polanski zusammengearbeitet, wodurch sie sich als vielseitige 
+                aus. Sie thematisiert oft zwischenmenschliche Beziehungen und das
+                Scheitern der Kommunikation. Neben Theaterstücken hat sie auch
+                erfolgreiche Romane verfasst und ebenfalls im filmischen Bereich mit
+                Roman Polanski zusammengearbeitet, wodurch sie sich als vielseitige
                 Autorin etabliert hat.
               </p>
               <p className="text-lg">
-                Quelle: <a 
-                  href="https://www.britannica.com/biography/Yasmina-Reza" 
-                  target="_blank" 
+                Quelle: <a
+                  href="https://www.britannica.com/biography/Yasmina-Reza"
+                  target="_blank"
                   rel="noreferrer noopener"
                   className="text-slate hover:underline"
                 >
@@ -121,16 +124,16 @@ export default function ProduktionPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-display mb-12 text-center">Die Rollen</h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {castImages.map((character) => (
                 <div key={character.id} className="bg-white rounded-md shadow-md overflow-hidden hover:shadow-xl transition-shadow">
                   <div className="relative pt-[125%] bg-ice">
                     {character.images.map((image, index) => (
-                      <img 
+                      <img
                         key={index}
-                        src={image} 
-                        alt={character.name} 
+                        src={image}
+                        alt={character.name}
                         className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ${
                           index === activeImageIndex ? 'opacity-100' : 'opacity-0'
                         }`}
@@ -139,7 +142,7 @@ export default function ProduktionPage() {
                     {character.images.length > 1 && (
                       <div className="absolute bottom-4 right-4 flex gap-2">
                         {character.images.map((_, index) => (
-                          <button 
+                          <button
                             key={index}
                             onClick={() => setActiveImageIndex(index)}
                             className={`w-3 h-3 rounded-full ${
@@ -172,7 +175,7 @@ export default function ProduktionPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl font-display mb-8 text-center">Mitwirkende</h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <p className="text-lg py-2"><span className="font-bold">Serge:</span> Kevin Nolting</p>
@@ -187,7 +190,7 @@ export default function ProduktionPage() {
                   <p className="text-lg py-2"><span className="font-bold">Requisiten:</span> Claus Wiegand</p>
                 </div>
               </div>
-              
+
               <p className="text-center mt-8">
                 Weitere Informationen zu den Mitwirkenden gibt es <a href="/ueber-uns" className="text-slate hover:underline">hier</a>.
               </p>
@@ -199,19 +202,19 @@ export default function ProduktionPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-display mb-12 text-center">Eindrücke aus der Produktion</h2>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
               {galleryImages.map((image, index) => (
                 <div key={index} className="overflow-hidden rounded-md shadow-md hover:shadow-xl transition-shadow">
-                  <img 
-                    src={image} 
-                    alt={`Szene aus "Kunst" ${index + 1}`} 
+                  <img
+                    src={image}
+                    alt={`Szene aus "Kunst" ${index + 1}`}
                     className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               ))}
             </div>
-            
+
             <div className="text-center mt-12">
               <p className="text-lg">
                 Vielen Dank an{' '}

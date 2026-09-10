@@ -196,7 +196,7 @@ export default function KontaktPage() {
               <p className="text-xl mb-8 max-w-3xl mx-auto text-mist">
                 Besuchen Sie unsere aktuelle Produktion und erleben Sie Theater hautnah!
               </p>
-              <a href="/produktion" className="inline-block bg-light hover:bg-ice text-dark font-semibold uppercase tracking-wider py-3 px-8 rounded-md transition-colors">
+              <a href="/was-wir-machen/theater" className="inline-block bg-light hover:bg-ice text-dark font-semibold uppercase tracking-wider py-3 px-8 rounded-md transition-colors">
                 Zur aktuellen Produktion
               </a>
             </div>

@@ -170,7 +170,7 @@ export default function ArchivPage() {
               wenn Sie mehr über vergangene Stücke erfahren möchten.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="/produktion" className="bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-md transition-colors">
+              <a href="/was-wir-machen/theater" className="bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-md transition-colors">
                 Aktuelle Produktion
               </a>
               <a href="/kontakt" className="bg-white border border-gray-900 hover:bg-gray-100 text-gray-900 font-bold py-3 px-8 rounded-md transition-colors">

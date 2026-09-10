@@ -129,7 +129,7 @@ export default function ImpressumPage() {
 
               <h3 className="text-xl font-semibold mb-3">Spenden: PayPal</h3>
               <p className="mb-6">
-                Für Spenden über den PayPal-Button auf unserer Seite arbeiten wir mit dem Zahlungsdienstleister PayPal (Europe) S.à.r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Luxembourg zusammen. Wenn Sie sich für eine Spende per PayPal entscheiden, werden die zur Zahlungsabwicklung erforderlichen Daten (u. a. Name, E-Mail-Adresse, Zahlungsbetrag, IP-Adresse) an PayPal übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Erfüllung des mit PayPal geschlossenen Zahlungsvertrags). PayPal kann im Rahmen des Bezahlvorgangs eigene Cookies setzen; nähere Informationen hierzu sowie zur weiteren Datenverarbeitung durch PayPal finden Sie in der <a href="https://www.paypal.com/de/legalhub/paypal/privacy-full" target="_blank" rel="noreferrer noopener" className="text-slate hover:underline">PayPal-Datenschutzerklärung</a>.
+                Auf unserer Seite verlinken wir (auch über einen QR-Code) zu einer Spendenseite von PayPal (Europe) S.à.r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Luxembourg. Beim Anklicken des Links bzw. Scannen des QR-Codes verlassen Sie unsere Website; die eigentliche Zahlungsabwicklung findet vollständig auf den Seiten von PayPal statt, wo die zur Zahlungsabwicklung erforderlichen Daten (u. a. Name, E-Mail-Adresse, Zahlungsbetrag, IP-Adresse) direkt bei PayPal anfallen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Erfüllung des mit PayPal geschlossenen Zahlungsvertrags). Nähere Informationen zur Datenverarbeitung durch PayPal finden Sie in der <a href="https://www.paypal.com/de/legalhub/paypal/privacy-full" target="_blank" rel="noreferrer noopener" className="text-slate hover:underline">PayPal-Datenschutzerklärung</a>.
               </p>
 
               <h2 className="text-2xl font-bold mb-4">Datensicherheit</h2>
@@ -164,7 +164,7 @@ export default function ImpressumPage() {
 
               <h2 className="text-2xl font-bold mb-4">Cookies</h2>
               <p className="mb-6">
-                Diese Webseite an sich verwendet keine eigenen Cookies. Beim Nutzen des PayPal-Spenden-Buttons lädt Ihr Browser das PayPal-SDK direkt von PayPal, wodurch PayPal eigene Cookies setzen kann (siehe „Spenden: PayPal“ oben). Für Cookies weiterer eingebundener Medien (Youtube-Videos, Links zu externen Webseiten etc.) kann keine Gewähr übernommen werden (siehe Dienste und Inhalte anderer Anbieter).
+                Diese Webseite an sich verwendet keine eigenen Cookies. Für Cookies eingebundener bzw. verlinkter Medien und Dienste (Youtube-Videos, der PayPal-Spendenlink, Links zu externen Webseiten etc.) kann keine Gewähr übernommen werden (siehe Dienste und Inhalte anderer Anbieter).
               </p>
 
               <h2 className="text-2xl font-bold mb-4">Dienste und Inhalte anderer Anbieter</h2>

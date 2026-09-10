@@ -4,9 +4,8 @@ import SEO from '@/components/SEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
-import { BANK_DETAILS } from '@/lib/donations';
+import { BANK_DETAILS, PAYPAL_DONATE_URL } from '@/lib/donations';
 import { Download } from 'lucide-react';
-import PayPalDonateButton from '@/components/PayPalDonateButton';
 
 export default function UnterstuetzenPage() {
   const ngoSchema = {
@@ -120,12 +119,34 @@ export default function UnterstuetzenPage() {
                 </div>
 
                 {/* PayPal Card */}
-                <div className="bg-white p-8 rounded-md shadow-md flex flex-col">
-                  <h3 className="text-xl font-semibold mb-4">Per PayPal</h3>
-                  <p className="text-slate mb-6">
+                <div className="bg-white p-8 rounded-md shadow-md flex flex-col items-center text-center">
+                  <h3 className="text-xl font-semibold mb-4 self-start">Per PayPal</h3>
+                  <p className="text-slate mb-6 self-start">
                     Schnell und unkompliziert per PayPal spenden – ganz ohne Überweisung.
                   </p>
-                  <PayPalDonateButton />
+                  <img
+                    src="/images/QR-Code.png"
+                    alt="QR-Code zum PayPal-Spendenlink"
+                    className="w-36 h-36 mb-6 rounded-md border border-silver"
+                    width={145}
+                    height={145}
+                  />
+                  <a
+                    href={PAYPAL_DONATE_URL}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.open(
+                        PAYPAL_DONATE_URL,
+                        'paypal_spenden',
+                        'width=450,height=680,noopener,noreferrer'
+                      );
+                    }}
+                    className="w-full inline-block text-center bg-dark hover:bg-steel text-light font-semibold uppercase tracking-wider py-3 px-8 rounded-md transition-colors"
+                  >
+                    Mit PayPal spenden
+                  </a>
                 </div>
               </div>
             </div>

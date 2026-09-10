@@ -37,7 +37,7 @@ export default function ArchivPage() {
                 zu erfahren.
               </p>
               <div className="mt-8">
-                <a href="/produktion" className="inline-block bg-dark hover:bg-steel text-light font-semibold uppercase tracking-wider py-3 px-8 rounded-md transition-colors">
+                <a href="/was-wir-machen/theater" className="inline-block bg-dark hover:bg-steel text-light font-semibold uppercase tracking-wider py-3 px-8 rounded-md transition-colors">
                   Zur aktuellen Produktion
                 </a>
               </div>
