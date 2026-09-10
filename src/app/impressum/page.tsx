@@ -36,8 +36,8 @@ export default function ImpressumPage() {
               <p className="mb-2">Vertreten wird dieser durch</p>
               <div className="mb-6 bg-ice p-4 rounded-md">
                 <p><strong>Name:</strong> Bastian Bühler</p>
-                <p><strong>Adresse:</strong> Liegnitzer Straße 15, 33098 Paderborn</p>
-                <p><strong>E-Mail:</strong> <a href="mailto:vorstand@zwiegespraech-theater.de" className="text-slate hover:underline">vorstand@zwiegespraech-theater.de</a></p>
+                <p><strong>Adresse:</strong> Winfriedstraße 29, 33098 Paderborn</p>
+                <p><strong>E-Mail:</strong> <a href="mailto:info@zwiegespraech-theater.de" className="text-slate hover:underline">info@zwiegespraech-theater.de</a></p>
                 <p><strong>Telefon:</strong> 015737000047</p>
               </div>
 
@@ -53,7 +53,7 @@ export default function ImpressumPage() {
                 <div className="mb-4">
                   <p><strong>Name:</strong> Kevin Nolting</p>
                   <p><strong>Adresse:</strong> Burgstraße 1, 32825 Blomberg</p>
-                  <p><strong>E-Mail:</strong> <a href="mailto:info@zwiegespraech-theater.de" className="text-slate hover:underline">info@zwiegespraech-theater.de</a></p>
+                  <p><strong>E-Mail:</strong> <a href="mailto:vorstand@zwiegespraech-theater.de" className="text-slate hover:underline">vorstand@zwiegespraech-theater.de</a></p>
                   <p><strong>Telefon:</strong> 015737000047</p>
                 </div>
                 <div>
@@ -77,13 +77,13 @@ export default function ImpressumPage() {
               </p>
               <div className="mb-6 bg-ice p-4 rounded-md">
                 <p><strong>Bastian Bühler</strong><br />
-                Liegnitzer Straße 15, 33098 Paderborn<br />
-                <a href="mailto:vorstand@zwiegespraech-theater.de" className="text-slate hover:underline">vorstand@zwiegespraech-theater.de</a><br />
+                Winfriedstraße 29, 33098 Paderborn<br />
+                <a href="mailto:info@zwiegespraech-theater.de" className="text-slate hover:underline">info@zwiegespraech-theater.de</a><br />
                 015737000047</p>
                 
                 <p className="mt-4"><strong>Kevin Nolting</strong><br />
                 Burgstraße 1, 32825 Blomberg<br />
-                <a href="mailto:info@zwiegespraech-theater.de" className="text-slate hover:underline">info@zwiegespraech-theater.de</a><br />
+                <a href="mailto:vorstand@zwiegespraech-theater.de" className="text-slate hover:underline">vorstand@zwiegespraech-theater.de</a><br />
                 015737000047</p>
               </div>
 

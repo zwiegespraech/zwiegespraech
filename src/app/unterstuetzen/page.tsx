@@ -32,7 +32,7 @@ export default function UnterstuetzenPage() {
         {/* Hero Section */}
         <section className="pt-32 pb-16 bg-dark text-light">
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl font-display mb-6 text-center">[ˌʊ]nterst[ʏ]tzen</h1>
+            <h1 className="text-4xl md:text-5xl font-display mb-6 text-center">[ʊ]nt[ɐ]stützen</h1>
             <p className="text-xl text-center text-mist max-w-2xl mx-auto">
               Werde Teil von Zw[i:]g[ə]spräch oder hilf uns mit einer Spende, Theater in Paderborn lebendig zu halten.
             </p>
