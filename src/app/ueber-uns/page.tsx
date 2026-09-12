@@ -364,12 +364,14 @@ export default function UeberUnsPage() {
     {
       id: 31,
       name: "Thorsten Böhner",
-      profession: "-",
-      experience: "-",
-      role: "-",
-      theatreQuote: "-",
-      zwiegespraechQuote: "-",
-      imageSrc: "/images/team/male.webp"
+      birthYear: 1967,
+      birthQuarter: 4,
+      profession: "Theateraktivität: seit 1981",
+      experience: "Amateurtheater, Mitwirkung in diversen Theaterstücken von Drama, Comedy bis Kinderstücke und im Improtheater, Theaterschriftsteller, Theaterpädagoge",
+      role: "Schauspiel, Improtheater",
+      theatreQuote: "Ich finde es wichtig, die Faszination des Live-Erlebens Theater aufrecht zu erhalten, um damit die Menschen zu unterhalten und zum Nachdenken zu bringen",
+      zwiegespraechQuote: "Zwiegespräch als solches bedeutet für mich, abseits von Mail, Whatsapp und Co. persönlich mit gleichgesinnten Menschen in Interaktion und Austausch zu gehen. Ein Geben und Nehmen, wo jeder vom anderen profitiert ",
+      imageSrc: "/images/team/thorsten.webp"
     },
         {
       id: 22,
