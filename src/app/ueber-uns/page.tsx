@@ -114,7 +114,7 @@ export default function UeberUnsPage() {
       role: "-",
       theatreQuote: "-",
       zwiegespraechQuote: "-",
-      imageSrc: "/images/team/anna.webp"
+      imageSrc: "/images/team/female.webp"
     },
          {
       id: 4,

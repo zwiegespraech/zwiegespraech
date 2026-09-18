@@ -24,8 +24,8 @@ export default function WasWirMachenPage() {
       title: "H[øː]rspiel",
       href: "/was-wir-machen/hoerspiel",
       teaser: "Geschichten für die Ohren",
-      description: "Erzählte Geschichten, die ganz ohne Bühne auskommen: unsere Hörspielproduktionen.",
-      image: "/images/Kunst/IMG_8747.webp"
+      description: "Geschichten, die ganz ohne Bühne auskommen: unsere Hörspielproduktionen.",
+      image: "/images/hoerspiel.webp"
     }
   ];
 
