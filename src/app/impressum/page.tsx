@@ -65,7 +65,7 @@ export default function ImpressumPage() {
               </div>
 
               {/* Datenschutz Section */}
-              <h1 className="text-3xl font-bold mb-8 mt-12">Datenschutz</h1>
+              <h1 id="datenschutz" className="text-3xl font-bold mb-8 mt-12 scroll-mt-24">Datenschutz</h1>
               
               <p className="mb-6">
                 Datenschutz ist uns ein besonders wichtiges Anliegen, und selbstverständlich halten wir uns an die geltenden datenschutzrechtlichen Vorgaben. Wir möchten Sie daher nachfolgend über die mit dem Besuch dieser Website verbundene Verarbeitung von personenbezogenen Daten aufklären und Sie über Ihre entsprechenden Rechte informieren:
