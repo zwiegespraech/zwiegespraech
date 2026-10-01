@@ -10,6 +10,7 @@ interface Event {
   id: number;
   title: string;
   date: Date;
+  endTime?: string; // z. B. "21:00"
   location: string;
   description: string;
   ticketLink: string;
@@ -17,11 +18,65 @@ interface Event {
   image?: string;
   cast?: string[];
   direction?: string;
+  repeat?: Repeat;
 }
+
+// Wiederholung eines Termins: "date" ist der erste Termin, "until" der letzte mögliche Tag
+// (ohne "until" läuft die Serie offen und wird bis zwei Jahre ab heute angezeigt)
+interface Repeat {
+  every: "week" | "2weeks" | "month";
+  until?: Date;
+  except?: Date[]; // einzelne Termine, die ausfallen
+}
+
+const isSameDay = (a: Date, b: Date): boolean =>
+  a.getDate() === b.getDate() &&
+  a.getMonth() === b.getMonth() &&
+  a.getFullYear() === b.getFullYear();
+
+// Wiederkehrende Termine in einzelne Termine auflösen
+const expandEvents = (events: Event[]): Event[] =>
+  events.flatMap(event => {
+    if (!event.repeat) return [event];
+    const { every, until, except = [] } = event.repeat;
+    const start = new Date(event.date);
+    const today = new Date();
+    const last = until ?? new Date(today.getFullYear() + 2, today.getMonth(), today.getDate());
+    const end = new Date(last.getFullYear(), last.getMonth(), last.getDate(), 23, 59, 59);
+    const occurrences: Event[] = [];
+
+    for (let i = 0; ; i++) {
+      const date = new Date(start);
+      if (every === "month") {
+        date.setDate(1);
+        date.setMonth(start.getMonth() + i);
+        // Monate ohne diesen Tag (z. B. 31.) überspringen
+        if (start.getDate() > new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()) continue;
+        date.setDate(start.getDate());
+      } else {
+        date.setDate(start.getDate() + i * (every === "week" ? 7 : 14));
+      }
+      if (date > end) break;
+      if (except.some(skip => isSameDay(skip, date))) continue;
+      occurrences.push({ ...event, date });
+    }
+    return occurrences;
+  });
 
 export default function KalenderPage() {
   // Sample upcoming events - Hier Ihre tatsächlichen Events einfügen
   const [events] = useState<Event[]>([
+    {
+      id: 5,
+      title: "Improabend",
+      date: new Date(2026, 9, 23, 18, 0), // ab 23. Oktober 2026, 18:00
+      endTime: "21:00",
+      repeat: { every: "2weeks" },
+      location: "Kulturwerkstatt, Bahnhofstraße 64, 33102 Paderborn",
+      description: "",
+      ticketLink: "",
+      price: ""
+    },
 
 //    {
 //      id: 3,
@@ -33,7 +88,25 @@ export default function KalenderPage() {
 //      price: "20€",
 //      image: "/images/workshop-poster.jpg"
 //    }
+
+// Beispiel für einen wiederkehrenden Termin:
+//    {
+//      id: 4,
+//      title: "Impro-Training",
+//      date: new Date(2026, 9, 6, 19, 0), // erster Termin: 6. Oktober 2026, 19:00
+//      repeat: {
+//        every: "week",                   // "week", "2weeks" oder "month"
+//        until: new Date(2026, 11, 15),   // letzter möglicher Termin
+//        except: [new Date(2026, 10, 3)], // optional: fällt aus am 3. November
+//      },
+//      location: "Proberaum, Rheine",
+//      description: "Offenes Training für alle.",
+//      ticketLink: "",
+//      price: "kostenlos"
+//    }
  ]);
+
+  const occurrences = expandEvents(events);
 
   // State für das ausgewählte Event
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
@@ -108,23 +181,14 @@ export default function KalenderPage() {
   // Check if a given day has events
   const hasEvents = (day: number | null): boolean => {
     if (!day) return false;
-    return events.some(event => {
-      const eventDate = new Date(event.date);
-      return eventDate.getDate() === day &&
-             eventDate.getMonth() === displayMonth &&
-             eventDate.getFullYear() === displayYear;
-    });
+    return getEventsForDay(day).length > 0;
   };
 
   // Get events for a given day
   const getEventsForDay = (day: number | null): Event[] => {
     if (!day) return [];
-    return events.filter(event => {
-      const eventDate = new Date(event.date);
-      return eventDate.getDate() === day &&
-             eventDate.getMonth() === displayMonth &&
-             eventDate.getFullYear() === displayYear;
-    });
+    const dayDate = new Date(displayYear, displayMonth, day);
+    return occurrences.filter(event => isSameDay(new Date(event.date), dayDate));
   };
 
   // Create calendar grid
@@ -207,7 +271,7 @@ export default function KalenderPage() {
                                     onClick={() => setSelectedEvent(event)}
                                   >
                                     <p className="font-bold">{event.title}</p>
-                                    <p>{new Date(event.date).toLocaleTimeString('de-DE', {hour: '2-digit', minute:'2-digit'})}</p>
+                                    <p>{new Date(event.date).toLocaleTimeString('de-DE', {hour: '2-digit', minute:'2-digit'})}{event.endTime && `–${event.endTime}`}</p>
                                   </div>
                                 ))}
                               </div>
@@ -285,10 +349,10 @@ export default function KalenderPage() {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric'
-                })} um {new Date(selectedEvent.date).toLocaleTimeString('de-DE', {
+                })}, {selectedEvent.endTime ? 'von ' : 'um '}{new Date(selectedEvent.date).toLocaleTimeString('de-DE', {
                   hour: '2-digit',
                   minute: '2-digit'
-                })} Uhr
+                })}{selectedEvent.endTime && ` bis ${selectedEvent.endTime}`} Uhr
               </p>
 
               <p className="mb-2"><span className="font-medium">Ort:</span> {selectedEvent.location}</p>
